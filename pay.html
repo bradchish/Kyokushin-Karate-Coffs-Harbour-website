@@ -35,46 +35,47 @@
 </header>
 
 <main id="top">
+  <div class="pay-banner" id="payBanner" role="status" hidden></div>
   <section id="term-fees">
     <div class="wrap">
       <div class="section-head">
         <h1>Pay online</h1>
-        <p>Pay your term fees securely through Stripe. Pick the plan that matches who is training and how many classes a week they attend. Fees are paid per school term.</p>
+        <p>Add what you need to your cart and pay once, securely through Stripe. Pick the plan that matches who is training and how many classes a week they attend. Fees are paid per school term.</p>
       </div>
 
       <h3 class="ladder-title">Adults</h3>
       <div class="plans">
-        <article class="plan">
+        <article class="plan" data-id="adult-2x" data-name="Adult term fees, 2 classes a week" data-price="240">
           <p class="who">Adults</p>
           <h4>Two classes a week</h4>
           <p class="price">$240<small>per term</small></p>
           <p class="detail">Monday and Wednesday, 5:00 to 7:00pm.</p>
-          <a class="btn primary" href="https://buy.stripe.com/bJe7sM3cv8SifTk2Hy1oI03" rel="noopener">Pay $240</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/bJe7sM3cv8SifTk2Hy1oI03" rel="noopener">Pay for this item only</a></div>
         </article>
-        <article class="plan">
+        <article class="plan" data-id="adult-1x" data-name="Adult term fees, 1 class a week" data-price="180">
           <p class="who">Adults</p>
           <h4>One class a week</h4>
           <p class="price">$180<small>per term</small></p>
           <p class="detail">Monday or Wednesday, 5:00 to 7:00pm.</p>
-          <a class="btn primary" href="https://buy.stripe.com/3cI4gA8wP2tU4aC0zq1oI04" rel="noopener">Pay $180</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/3cI4gA8wP2tU4aC0zq1oI04" rel="noopener">Pay for this item only</a></div>
         </article>
       </div>
 
       <h3 class="ladder-title junior-title">Kids</h3>
       <div class="plans">
-        <article class="plan">
+        <article class="plan" data-id="kid-2x" data-name="Kids term fees, 2 classes a week" data-price="200">
           <p class="who">Kids</p>
           <h4>Two classes a week</h4>
           <p class="price">$200<small>per term</small></p>
           <p class="detail">Monday and Wednesday, 5:00 to 6:00pm.</p>
-          <a class="btn primary" href="https://buy.stripe.com/cNi28s8wP0lMdLcbe41oI05" rel="noopener">Pay $200</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/cNi28s8wP0lMdLcbe41oI05" rel="noopener">Pay for this item only</a></div>
         </article>
-        <article class="plan">
+        <article class="plan" data-id="kid-1x" data-name="Kids term fees, 1 class a week" data-price="150">
           <p class="who">Kids</p>
           <h4>One class a week</h4>
           <p class="price">$150<small>per term</small></p>
           <p class="detail">Monday or Wednesday, 5:00 to 6:00pm.</p>
-          <a class="btn primary" href="https://buy.stripe.com/4gM9AUfZhd8y6iK81S1oI00" rel="noopener">Pay $150</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/4gM9AUfZhd8y6iK81S1oI00" rel="noopener">Pay for this item only</a></div>
         </article>
       </div>
 
@@ -86,43 +87,43 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Grading, uniform and gear</h2>
-        <p>Pay for your grading, uniform and gear online through Stripe, or pay your instructor at the dojo.</p>
+        <p>Add grading, uniform and gear to the same cart as your term fees, or pay your instructor at the dojo.</p>
       </div>
 
       <!--
-        HOW TO TURN ON ONLINE PAYMENT FOR AN ITEM
-        1. In Stripe, create a Payment Link for the item and copy its link.
-        2. For an item with no link yet, use  <p class="status">Pay at the dojo</p>  in place of the button.
-           To add or change a link, edit the button (with your own link):
-             <a class="btn primary" href="PASTE-STRIPE-LINK-HERE" rel="noopener">Pay online</a>
-        To add a new item, copy one whole <article class="shop-item"> ... </article> block and change the name, price and description.
+        HOW TO ADD OR CHANGE AN ITEM IN THE CART
+        1. In netlify/functions/checkout.js, add a line to CATALOG (or change a price there). The price in that
+           file is the one customers are charged.
+        2. Copy one whole <article class="shop-item" ...> block below and change data-id (must match the CATALOG id),
+           data-name, data-price (display only), the heading and the price shown.
+        The small "Pay for this item only" links are the old single-item Stripe links. Delete them once you are happy with the cart.
       -->
       <div class="shop">
-        <article class="shop-item">
+        <article class="shop-item" data-id="grading" data-name="Grading fee" data-price="35">
           <h4>Grading</h4>
           <p class="price">$35</p>
-          <a class="btn primary" href="https://buy.stripe.com/bJe6oI00j0lMgXo6XO1oI06" rel="noopener">Pay $35</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/bJe6oI00j0lMgXo6XO1oI06" rel="noopener">Pay for this item only</a></div>
         </article>
-        <article class="shop-item">
+        <article class="shop-item" data-id="gi" data-name="Gi (uniform)" data-price="50">
           <h4>Gi (uniform)</h4>
           <p class="price">$50</p>
           <p class="detail">Not needed for a first visit.</p>
-          <a class="btn primary" href="https://buy.stripe.com/8x25kEeVdd8y9uW5TK1oI08" rel="noopener">Pay $50</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/8x25kEeVdd8y9uW5TK1oI08" rel="noopener">Pay for this item only</a></div>
         </article>
-        <article class="shop-item">
+        <article class="shop-item" data-id="gloves" data-name="Gloves" data-price="20">
           <h4>Gloves</h4>
           <p class="price">$20</p>
-          <a class="btn primary" href="https://buy.stripe.com/14A28sfZh7OecH84PG1oI07" rel="noopener">Pay $20</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/14A28sfZh7OecH84PG1oI07" rel="noopener">Pay for this item only</a></div>
         </article>
-        <article class="shop-item">
+        <article class="shop-item" data-id="shin-pads" data-name="Shin pads" data-price="20">
           <h4>Shin pads</h4>
           <p class="price">$20</p>
-          <a class="btn primary" href="https://buy.stripe.com/cNidRaeVd1pQaz0be41oI0a" rel="noopener">Pay $20</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/cNidRaeVd1pQaz0be41oI0a" rel="noopener">Pay for this item only</a></div>
         </article>
-        <article class="shop-item">
+        <article class="shop-item" data-id="mouth-guard" data-name="Mouth guard" data-price="10">
           <h4>Mouth guard</h4>
           <p class="price">$10</p>
-          <a class="btn primary" href="https://buy.stripe.com/fZucN69AT6KadLc6XO1oI09" rel="noopener">Pay $10</a>
+          <div class="buy"><button class="btn primary add-to-cart" type="button">Add to cart</button><a class="direct-link" href="https://buy.stripe.com/fZucN69AT6KadLc6XO1oI09" rel="noopener">Pay for this item only</a></div>
         </article>
       </div>
 
@@ -142,5 +143,22 @@
     <span class="foot-social"><a class="foot-icon" href="https://www.instagram.com/mokka.coffs.harbour/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a><a class="foot-icon" href="https://www.facebook.com/profile.php?id=61577713940890" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.5-3.2h-3.2V7.9c0-.9.4-1.7 1.8-1.7h1.5V3.4c-.3 0-1.3-.2-2.4-.2-2.6 0-4.2 1.5-4.2 4.3v2.3H7.5V13h2.7v8h3.3z"/></svg></a></span>
   </div>
 </footer>
+<button class="cart-fab" id="cartOpen" type="button" aria-controls="cart" aria-expanded="false">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L21 8H6"/></svg>
+  <span>Cart</span><span class="cart-count" id="cartCount">0</span>
+</button>
+<div class="cart-scrim" id="cartScrim" hidden></div>
+<aside class="cart" id="cart" aria-label="Shopping cart" hidden>
+  <div class="cart-head"><h2>Your cart</h2><button class="cart-close" id="cartClose" type="button" aria-label="Close cart">&times;</button></div>
+  <ul class="cart-list" id="cartList"></ul>
+  <p class="cart-empty" id="cartEmpty">Your cart is empty. Add term fees, grading or gear, then check out once.</p>
+  <div class="cart-foot">
+    <p class="cart-total"><span>Total</span><strong id="cartTotal">$0</strong></p>
+    <p class="cart-error" id="cartError" role="alert" hidden></p>
+    <button class="btn primary" id="checkoutBtn" type="button">Checkout with Stripe</button>
+    <p class="cart-small">You will enter the student's name and your email on the Stripe page. Prices are in AUD.</p>
+  </div>
+</aside>
+<script src="cart.js"></script>
 </body>
 </html>
