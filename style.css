@@ -554,3 +554,38 @@
   .map-note { margin: 12px 0 0; color: var(--muted); font-size: 0.95rem; }
   @media (max-width: 860px) { .map-frame { aspect-ratio: 4 / 5; } }
   @media (prefers-reduced-motion: no-preference) { .cart { animation: cart-in 0.25s ease both; } @keyframes cart-in { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } } }
+
+  /* ---------- Cart button sits above the "Powered by Netlify" badge ---------- */
+  .cart-fab { bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
+  .cart-foot { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+
+  /* ---------- Skip link, footer links ---------- */
+  .skip { position: absolute; left: 16px; top: -64px; z-index: 100; background: var(--fg); color: var(--bg); padding: 12px 18px; font-weight: 700; text-decoration: none; transition: top 0.15s ease; }
+  .skip:focus { top: 12px; }
+  .foot-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding-top: 0; border-top: 0; font-size: 0.9rem; color: var(--muted); }
+  .foot-meta nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.9rem; font-weight: 600; }
+  .foot-meta p { margin: 0; max-width: none; }
+  footer .wrap + .wrap { padding-top: 0; margin-top: -8px; }
+
+  /* ---------- Mobile menu ---------- */
+  .nav-toggle { display: none; }
+  @media (max-width: 860px) {
+    .js-nav .bar .wrap { flex-wrap: wrap; gap: 8px 16px; padding-block: 12px; }
+    .js-nav .mark { font-size: 1.15rem; letter-spacing: 0.08em; }
+    .js-nav .mark img { width: 38px; height: 38px; }
+    .js-nav .nav-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 48px; height: 48px; padding: 0 12px; margin-left: auto; border: 1px solid var(--rule); background: transparent; color: var(--fg); cursor: pointer; }
+    .js-nav .nav-toggle span { display: block; height: 2px; background: currentColor; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .js-nav .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .js-nav .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .js-nav .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .js-nav .bar nav { display: none; flex-basis: 100%; flex-direction: column; gap: 0; padding-bottom: 8px; }
+    .js-nav .bar nav.open { display: flex; }
+    .js-nav .bar nav a { padding: 14px 4px; border-bottom: 1px solid var(--rule); font-size: 1.05rem; }
+    .js-nav .bar nav a.nav-pay { margin-top: 12px; text-align: center; border-bottom: 0; padding: 14px; }
+  }
+  @media (max-width: 860px) {
+    .js-nav .bar .wrap { flex-wrap: wrap; align-items: center; }
+    .js-nav .mark { flex: 1 1 0; min-width: 0; line-height: 1.1; }
+    .js-nav .mark span { display: none; }
+    .js-nav .nav-toggle { flex: none; }
+  }

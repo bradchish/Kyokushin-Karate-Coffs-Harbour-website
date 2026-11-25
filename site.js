@@ -1,12 +1,22 @@
 /* Kyokushin Karate Coffs Harbour: small enhancements. The site works fully without this file. */
 (function () {
   var root = document.documentElement;
+  root.classList.add('js-nav');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canObserve = 'IntersectionObserver' in window;
   if (canObserve) root.classList.add('js');
   // Visitors whose device is set to "reduce motion" (very common on Windows and Mac) get calm, fade-only
   // animations: no sliding, zooming, parallax or counting. Everyone else gets the full effects.
   if (reduce) root.classList.add('calm');
+
+  function setupMenu() {
+    var btn = document.querySelector('.nav-toggle'), nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    function set(open) { nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    btn.addEventListener('click', function () { set(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); btn.focus(); } });
+  }
 
   function ready(fn) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
@@ -232,5 +242,5 @@
     }, { passive: true });
   }
 
-  ready(function () { prepCounters(); setupReveal(); setupRules(); setupScrollFx(); setupViewer(); });
+  ready(function () { prepCounters(); setupReveal(); setupRules(); setupScrollFx(); setupViewer(); setupMenu(); });
 })();

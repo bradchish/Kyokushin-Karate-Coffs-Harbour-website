@@ -11,3 +11,6 @@ Files added: `netlify.toml`, `netlify/functions/checkout.js`, `cart.js`. Changed
 
 ## Changing prices or adding items
 Edit the CATALOG list at the top of `netlify/functions/checkout.js` (this is what customers are charged), then copy a `shop-item` block in `pay.html` with the same `data-id`.
+
+## Custom domain
+`sitemap.xml`, `robots.txt`, the share image tags (`og:image`) and the structured data in index.html use https://coffskyokushin.netlify.app. If you add your own domain later, replace that address in those files.
